@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BookmarkletBuilder.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BookmarkletMain" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BookmarkletMain.js</Value>
+    </Setting>
+    <Setting Name="BookmarkletsFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="BookmarkletHtmlTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Bookmarklets.template</Value>
+    </Setting>
+    <Setting Name="BookmarkletHtmlOutput" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Bookmarklets.html</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,14 @@
+
+<title>CRM Bookmarklets</title>
+<h1>CRM Bookmarklets</h1>
+
+<p>Click and drag the link to your favourites or bookmark bar.</p>
+
+<div>
+	<!--Bookmarklets-->
+</div>
+
+<h1>Add/Rebuild Bookmarklets</h1>
+Create a new Javascript file.  The object 'formContext' is the context object of the form, and you can access the Xrm.Page api from it.
+
+Run the BookmarkBuilder.exe to rebuild the Bookmarklets.html page with the minified bookmarklets.
