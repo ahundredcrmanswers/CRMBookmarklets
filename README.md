@@ -55,6 +55,3 @@ catch(er) {
 ```
 
 Once you have created your new bookmarklet to add to the list, you can then re-generate the [Bookmarklets.html](src/Bookmarklets.html) buy running the Bookmarklet Builder src/BookmarkletBuilder.exe.  Note: you can modify the configution for the Bookmarklet Builder executable by editing the config file: [src/BookmarkletBuilder.exe.config](src/BookmarkletBuilder.exe.config)
-
-
-Credit
