@@ -8,7 +8,7 @@ See Wikipedia more more detail: https://en.wikipedia.org/wiki/Bookmarklet?
 
 With CRM, there are some cases where you would like to change the form input fields, retrieve data from the form (ie Guid) to use in other processes.
 
-This project allows for the simple maintainence of a list of javascript bookmarklets that can be useful when using CRM.  The intended goal of these bookmarklets are for advanced users/developers who know what they are doing, and not for production based users as the changes made to the page may not be supported by Microsoft.
+This project allows for the simple maintenance of a list of javascript bookmarklets that can be useful when using CRM.  The intended goal of these bookmarklets are for advanced users/developers who know what they are doing, and not for production based users as the changes made to the page may not be supported by Microsoft.
 
 This project is a simple way to write CRM bookmarklets in javascript and build them in a list of links that can then be easily added to your bookmarks to be used as bookmarklets.
 
@@ -54,7 +54,7 @@ catch(er) {
 }
 ```
 
-Once you have created your new bookmarklet to add to the list, you can then re-generate the [Bookmarklets.html](src/Bookmarklets.html) buy running the Bookmarklet Builder src/BookmarkletBuilder.exe.  Note: you can modify the configution for the Bookmarklet Builder executable by editing: [src/BookmarkletBuilder.exe.config](src/BookmarkletBuilder.exe.config)
+Once you have created your new bookmarklet to add to the list, you can then re-generate the [Bookmarklets.html](src/Bookmarklets.html) buy running the Bookmarklet Builder src/BookmarkletBuilder.exe.  Note: you can modify the configution for the Bookmarklet Builder executable by editing the config file: [src/BookmarkletBuilder.exe.config](src/BookmarkletBuilder.exe.config)
 
 
 Credit
