@@ -1,7 +1,7 @@
 /*
 <BookmarkletInfo>
 	<Name>
-		Shave and Refresh From data
+		Save and Refresh From data
 	</Name>
 	<Description>
 		Asynchronously save and refresh the form.

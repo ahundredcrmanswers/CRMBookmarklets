@@ -23,8 +23,9 @@ Some example bookmarklets:
 * Enable All Fields - Enables all visible fields on the form to all you to edit them.
 * show Schema Names - Changes all input labels form their display name to the their schama name.
 
-Bookmarklets.js.template - this is a template file that can be copied from to make a new bookmarklets file.  Just copy and rename it with the ".js" extension in the Bookmaklets folder.  From there you can edit
+Bookmarklets.js.template - this is a template file that can be copied from to make a new bookmarklets file.  Just copy and rename it with the ".js" extension in the Bookmaklets folder.  From there you can edit you new bookmarklet file.  
 
+The following is the template that you can edit.
 ```javascript
 /*
 <BookmarkletInfo>
@@ -53,3 +54,7 @@ catch(er) {
 }
 ```
 
+Once you have created your new bookmarklet to add to the list, you can then re-generate the [Bookmarklets.html](src/Bookmarklets.html) buy running the Bookmarklet Builder src/BookmarkletBuilder.exe.  Note: you can modify the configution for the Bookmarklet Builder executable by editing: [src/BookmarkletBuilder.exe.config](src/BookmarkletBuilder.exe.config)
+
+
+Credit
