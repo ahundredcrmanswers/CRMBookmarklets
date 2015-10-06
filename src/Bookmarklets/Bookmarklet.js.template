@@ -1,0 +1,26 @@
+/*
+<BookmarkletInfo>
+	<Name>
+		<!-- Specify the bookmarklet name here to show up in the Bookmarklets.html file -->
+	</Name>
+	<Description>
+		<!-- Specify the description of the bookmarklet that is below the bookmarklet name in the Bookmarklets.html file.  This description can contain HTML formatting. -->
+	</Description>
+</BookmarkletInfo>
+*/
+// formContext - this is the variable passed into this javascript from BookmarkletMain.js wrapper
+// formContext.Xrm.Page - this is the Xrm Page object
+try {
+	
+	// Write your bookmarklet logic here, using the fromContext to extarct and/or manipulte
+    var id = formContext.Xrm.Page.data.entity.getId();
+    if (!id) {
+        return alert('Failed to find id on this form.');
+    }
+	
+   
+}
+catch(er) {
+	// handle exception
+    alert('Error: '+ er.message);
+}

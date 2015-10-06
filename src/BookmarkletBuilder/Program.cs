@@ -13,6 +13,9 @@ using System.Linq;
 
 namespace BookmarkletBuilder
 {
+    /// <summary>
+    /// Bookmarklet Information class
+    /// </summary>
     public class Bookmarklet
     {
         public string Name { get; set; }
@@ -21,8 +24,16 @@ namespace BookmarkletBuilder
 
     }
 
+    /// <summary>
+    /// Class for the main program execution.
+    /// </summary>
     class Program
     {
+        /// <summary>
+        /// Extract the inner xml of the xml element
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
         public static string InnerXml(XElement element)
         {
             StringBuilder innerXml = new StringBuilder();
@@ -30,36 +41,51 @@ namespace BookmarkletBuilder
             return innerXml.ToString();
         }
 
+
+        /// <summary>
+        /// Main Method (Entry point to the program).
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Minifier minifier = new Microsoft.Ajax.Utilities.Minifier();
+
+            /// instantiate a code settings object.
             CodeSettings cs = new CodeSettings();
             cs.QuoteObjectLiteralProperties = true;
             cs.PreserveImportantComments = false;
-            
-            
 
-            string bookmarkletMainJS = System.IO.File.ReadAllText(Properties.Settings.Default.BookmarkletMain);
+            /// Extract the bookmarklet wrapper javascript from the js wrapper file.  
+            /// This file is the defines the bookmarklet javascript entry point and wraps each bookmarklet within this javascript.
+            string bookmarkletMainJSWrapper = System.IO.File.ReadAllText(Properties.Settings.Default.BookmarkletMainJSWrapper);
 
+            /// Read all the HTML Template file for adding the bookmarklets as links into.
             string htmlTemplate = System.IO.File.ReadAllText(Properties.Settings.Default.BookmarkletHtmlTemplate);
 
+            /// A list of all the bookarklets from the bookmarklets folder
             List<Bookmarklet> bookmarklets = new List<Bookmarklet>();
 
+            #region Load all bookmarklets
+            /// For each bookmarklet js in the bookmarklets folder
             foreach (string file in System.IO.Directory.GetFiles(Properties.Settings.Default.BookmarkletsFolder))
             {
+                /// get the file info
                 FileInfo fi = new FileInfo(file);
 
+                // if the file is not a js file skip
                 if (fi.Extension.ToLower() != ".js")
                 {
                     continue;
                 }
 
+                /// Instantite the bookmarklet object populating all the properties
                 Bookmarklet bookmarklet = new Bookmarklet();
 
                 bookmarklet.Name = fi.Name.Replace(".js", "");
 
                 bookmarklet.javascript = System.IO.File.ReadAllText(file);
 
+
+                /// Extract the bookmarklet info from the xml documentation notation
                 int firstIndex = bookmarklet.javascript.IndexOf("<BookmarkletInfo>");
                 int lastindex = bookmarklet.javascript.LastIndexOf("</BookmarkletInfo>") + ("</BookmarkletInfo>").Length;
                 if (firstIndex > 0)
@@ -78,18 +104,27 @@ namespace BookmarkletBuilder
                         bookmarklet.Description = InnerXml(descriptionNode).Trim();
                     }
                 }
-                // insert the bookmarklet javascript into the bookmarklet Main
-                bookmarklet.javascript = bookmarkletMainJS.Replace("//[[Bookmarklet-Code-Inserted-Here]]", bookmarklet.javascript);
+                /// update the bookmarklet javascript by inserting it into the main wrapper js
+                /// witha  replace of "//[[Bookmarklet-Code-Inserted-Here]]" with the bookmarklet javascript
+                bookmarklet.javascript = bookmarkletMainJSWrapper.Replace("//[[Bookmarklet-Code-Inserted-Here]]", bookmarklet.javascript);
 
+                // add it to the list of bookmarklets.
                 bookmarklets.Add(bookmarklet);
             }
 
+            #endregion Load all bookmarklets
+
+
+            #region output all bookmarklets into the html output file based on the template.
             string bookmarkletHtml = "";
+            ///Instantiate a minifer instance
+            Minifier minifier = new Microsoft.Ajax.Utilities.Minifier();
 
             foreach (var bookmarklet in bookmarklets)
             {
                 //bookmarkletHtml += "<a href='javascript:" + HttpUtility.JavaScriptStringEncode(jsMinifer.Compress(kvp.Value)) + "'>" + kvp.Key + "</a>" + Environment.NewLine;
                 bookmarkletHtml += "<p>";
+                /// append the bookmarklet js minified.  Replace all ' with \\' to escape any js quotes.
                 bookmarkletHtml += "<a href=\"javascript:" + minifier.MinifyJavaScript(bookmarklet.javascript, cs).Replace("'", "\\'").Replace("\"", "'") + "\">" + bookmarklet.Name + "</a>" + Environment.NewLine;
                 if (!string.IsNullOrEmpty(bookmarklet.Description))
                 {
@@ -100,8 +135,9 @@ namespace BookmarkletBuilder
             }
 
             string html = htmlTemplate.Replace("<!--Bookmarklets-->", bookmarkletHtml);
-
+            /// write the results to the html output file
             File.WriteAllText(Properties.Settings.Default.BookmarkletHtmlOutput, html);
+            #endregion output all bookmarklets into the html output file based on the template.
         }
     }
 }
