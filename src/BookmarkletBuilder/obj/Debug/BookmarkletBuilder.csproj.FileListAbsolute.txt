@@ -1,8 +1,0 @@
-C:\Users\slautebach\Dev\AHundredCRMAnswers\CRMBookmarklets\src\BookmarkletBuilder\BookmarkletBuilder\bin\Debug\BookmarkletBuilder.exe.config
-C:\Users\slautebach\Dev\AHundredCRMAnswers\CRMBookmarklets\src\BookmarkletBuilder\bin\Debug\BookmarkletBuilder.exe.config
-C:\Users\slautebach\Dev\AHundredCRMAnswers\CRMBookmarklets\src\BookmarkletBuilder\bin\Debug\BookmarkletBuilder.exe
-C:\Users\slautebach\Dev\AHundredCRMAnswers\CRMBookmarklets\src\BookmarkletBuilder\bin\Debug\BookmarkletBuilder.pdb
-C:\Users\slautebach\Dev\AHundredCRMAnswers\CRMBookmarklets\src\BookmarkletBuilder\obj\Debug\BookmarkletBuilder.exe
-C:\Users\slautebach\Dev\AHundredCRMAnswers\CRMBookmarklets\src\BookmarkletBuilder\obj\Debug\BookmarkletBuilder.pdb
-C:\Users\slautebach\Dev\AHundredCRMAnswers\CRMBookmarklets\src\BookmarkletBuilder\obj\Debug\BookmarkletBuilder.csprojResolveAssemblyReference.cache
-C:\Users\slautebach\Dev\AHundredCRMAnswers\CRMBookmarklets\src\BookmarkletBuilder\bin\Debug\AjaxMin.dll
