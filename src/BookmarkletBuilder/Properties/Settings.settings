@@ -14,5 +14,11 @@
     <Setting Name="BookmarkletHtmlTemplate" Type="System.String" Scope="User">
       <Value Profile="(Default)">CRM Bookmarklets.template</Value>
     </Setting>
+    <Setting Name="BookmarkletHtmlImportableTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CRM Bookmarklets.Importable.template</Value>
+    </Setting>
+    <Setting Name="BookmarkletImportOutput" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Bookmarklets.Import.html</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

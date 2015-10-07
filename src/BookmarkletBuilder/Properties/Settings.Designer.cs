@@ -70,5 +70,29 @@ namespace BookmarkletBuilder.Properties {
                 this["BookmarkletHtmlTemplate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("CRM Bookmarklets.Importable.template")]
+        public string BookmarkletHtmlImportableTemplate {
+            get {
+                return ((string)(this["BookmarkletHtmlImportableTemplate"]));
+            }
+            set {
+                this["BookmarkletHtmlImportableTemplate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Bookmarklets.Import.html")]
+        public string BookmarkletImportOutput {
+            get {
+                return ((string)(this["BookmarkletImportOutput"]));
+            }
+            set {
+                this["BookmarkletImportOutput"] = value;
+            }
+        }
     }
 }

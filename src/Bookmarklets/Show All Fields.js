@@ -1,7 +1,7 @@
 /*
 <BookmarkletInfo>
 	<Name>
-		Show all fields
+		Show All fields
 	</Name>
 	<Description>
 		Sets the visibility to true for all fields on the form.

@@ -61,6 +61,8 @@ namespace BookmarkletBuilder
             /// Read all the HTML Template file for adding the bookmarklets as links into.
             string htmlTemplate = System.IO.File.ReadAllText(Properties.Settings.Default.BookmarkletHtmlTemplate);
 
+            string importableTemplate = System.IO.File.ReadAllText(Properties.Settings.Default.BookmarkletHtmlImportableTemplate);
+
             /// A list of all the bookarklets from the bookmarklets folder
             List<Bookmarklet> bookmarklets = new List<Bookmarklet>();
 
@@ -117,6 +119,7 @@ namespace BookmarkletBuilder
 
             #region output all bookmarklets into the html output file based on the template.
             string bookmarkletHtml = "";
+            string bookmarkletImport = "";
             ///Instantiate a minifer instance
             Minifier minifier = new Microsoft.Ajax.Utilities.Minifier();
 
@@ -129,14 +132,23 @@ namespace BookmarkletBuilder
                 if (!string.IsNullOrEmpty(bookmarklet.Description))
                 {
                     bookmarkletHtml += "<br/>";
-                    bookmarkletHtml += bookmarklet.Description ;
+                    bookmarkletHtml += bookmarklet.Description;
                 }
                 bookmarkletHtml += "</p>";
+
+                /// append the bookmarklet js minified.  Replace all ' with \\' to escape any js quotes.
+                bookmarkletImport += "\t\t<DT><A HREF=\"javascript:" + minifier.MinifyJavaScript(bookmarklet.javascript, cs).Replace("'", "\\'").Replace("\"", "'") + "\">" + bookmarklet.Name + "</A>" + Environment.NewLine;
+                
             }
 
             string html = htmlTemplate.Replace("<!--Bookmarklets-->", bookmarkletHtml);
             /// write the results to the html output file
             File.WriteAllText(Properties.Settings.Default.BookmarkletHtmlOutput, html);
+
+            html = importableTemplate.Replace("<!--Bookmarklets-->", bookmarkletImport);
+            /// write the results to the html output file
+            File.WriteAllText(Properties.Settings.Default.BookmarkletImportOutput, html);
+            
             #endregion output all bookmarklets into the html output file based on the template.
         }
     }

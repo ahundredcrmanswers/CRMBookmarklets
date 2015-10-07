@@ -1,7 +1,7 @@
 /*
 <BookmarkletInfo>
 	<Name>
-		Copy Record Link
+		Copy Record Id
 	</Name>
 	<Description>
 		<strong>Copies the record id to the clipboard.</strong>  If copy to clipboard is not supported then provides you with a prompt window to copy the link.
